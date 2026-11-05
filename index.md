@@ -7,7 +7,11 @@ It is not policy, nor is it intended to be - the views are the author's.
 ```
 
 ```{note}
-This is an informal discussion document. Semantic shortcuts (like sometimes referring to AI agents as Claude because mostly that's what we use) are aplenty. Suggested dev guide content is at the end, but this is one situation where I'd say don't skip all the verbiage to get to it - the how and why matters as well as the what here.
+This is an informal discussion document.
+Semantic shortcuts (like sometimes referring to AI agents as Claude because mostly that's what we use) are aplenty.
+Suggested dev guide content is at the end, but this is one situation where I'd say don't skip all the verbiage to get to it - the how and why matters as well as the what here.
+This is of course a work in progress, and I will update on the basis of the thoughtful feedback I am receiving.
+I will be adding discussions of elements that have turned out to be controversial in an Appendix section.
 ```
 
 ## First, let's stop losing our minds over this
@@ -110,11 +114,11 @@ Somewhat related, let's talk about code review.
 Code review is one of those peri-coding functions that has a lot of simultaneous goals.
 Sure it's an extra pair of eyes on the codebase, but it is also a mentoring tool, a knowledge dissemination exercise, and an enormous demand on the time of somebody technically senior who has a million other things they could be doing.
 
-If you spend a morning doing other things while Claude lined up a commit for you, it seems grossly unfair to ask me to spend my afternoon reviewing it.
-And yes, I have seen where this leads - a committer using Claude to write code then a reviewer uses Claude to then review and... people.
+If you spend a morning doing other things while Claude lines up a commit for you, it seems grossly unfair to ask me to spend my afternoon reviewing it.
+And yes, I have seen where this leads - a committer using Claude to write code, then a reviewer using Claude to review it, and... people.
 We are here to do things together.
 
-Now, by all means feel free to get Claude to pre-review yourself before assigning a human - in fact, if you have a history of being a time-consuming reviewee, please do so, for the love of God.
+Now, by all means feel free to get Claude to pre-review your work yourself before assigning a human - in fact, if you have a history of being a time-consuming reviewee, please do so, for the love of God.
 By the time you are burning human reviewer time though, you better be standing by what you have PRed.
 If Claude has done most of the work on your commit, it is _your_ responsibility to review it to the point where you can own it.
 
@@ -162,6 +166,8 @@ Them's the rules.
 
 _Disclose AI use (including prompts and/or transcripts) when a reasonable recipient of your work would judge them to be relevant_
 
+🔥 alert: see {ref}`appendix-attribution`
+
 ## Adjacent issues
 
 Some issues that go beyond the narrow development process, since we're on the topic.
@@ -182,18 +188,18 @@ AI tools are licensed by commercial concerns who market them as productivity boo
 
 First, this is an unhelpful framing that has stoked a bunch of negative feelings towards what are otherwise useful tools.
 
-Secondly, my observation is that this is not really how we're using these tools.
+Second, my observation is that this is not really how we're using these tools.
 People are using them for ambitious language ports that would otherwise never be scheduled as a priority, or for a bit of extra bling in a UI, or for a less fscked up web search experience, or to catch embarrassing errors before they reach a reviewer, etc. In other words, I see a lot of value-add type of work, and a bunch of reasons to own this framing.
 
 ### Don't set the polar bears on fire for nothing
 
-Has anybody had the experience of being on the 4th round of arguing with their agent about something it would have taken a fraction of the time to do yourself? (sheepily raises her hand).
+Has anybody had the experience of being on the 4th round of arguing with their agent about something it would have taken a fraction of the time to do yourself? (sheepishly raises her hand).
 
 Beware negative effort (rarer now with better models but still happens).
 And you do have more than a hammer, so use resources appropriately.
-Maybe a local spell-checker is a reasonable thing to run before burning tokens for Claude to tell me that I still don't know how to spell ~Mineapolis~ ~Mineappolis~ Min- oh never mind.
+Maybe a local spell-checker is a reasonable thing to run before burning tokens for Claude to tell me that I still don't know how to spell <del>Mineapolis</del> <del>Mineappolis</del> Min- oh never mind.
 
-Or maybe I should ask Claude how to get VSCode to reformat my technotes to one sentence per line and set it up once, rather than asking it to reformat my text every time.
+Or maybe I should ask Claude how to get VS Code to reformat my technotes to one sentence per line and set it up once, rather than asking it to reformat my text every time.
 In fact, I'll go do that now.
 
 ### Look, you're not the only person with the new toy
@@ -210,7 +216,7 @@ Just the facts and let it go.
 
 ### Compliance
 
-Yup so we all are employed at some kind of institution that has discovered (or invented) a compliance requirement, typically using some kind of security policy standing to do so.
+Yup, so we are all employed at some kind of institution that has discovered (or invented) a compliance requirement, typically using some kind of security policy standing to do so.
 Needless to say, people who don't write a lot of code are not going to make people who write a lot of code happy with that kind of document.
 
 As a member of Rubin DM, whenever you encounter this kind of framing, you are encouraged to remind people that we are a multi-institutional activity, and we do a lot of work on public open source codebases inside communities that couldn't care less who Rubin staff are employed by.
@@ -228,18 +234,47 @@ Though, granted, it is a lot more possible for you to get code from the crack ma
 
 ## Developer guide example draft
 
-You may use AI tools as it fits your working style and to the extent that you feel it adds value to your work.
-Use of those AI tools in no way releases you from your responsibility to take due care on the code you commit, understand its consequences and limitations, communicate its intent clearly, ensure it is robust and maintainable, and aligned within your team's technical culture.
+You may use AI tools as they fit your working style and to the extent that you feel it adds value to your work.
+Use of those AI tools in no way releases you from your responsibility to take due care on the code you commit, understand its consequences and limitations, communicate its intent clearly, ensure it is robust, maintainable, and aligned with your team's technical culture.
 
-Strive to submit code that a reviewer cannot tell (nor has to care) whether it was produced with AI assistance.
-This protects everybody's ability to use or not use this toolong to whatever extent they feel appropriate.
+Strive to submit code so that a reviewer cannot tell (nor has to care) whether it was produced with AI assistance.
+This protects everybody's ability to use or not use this tooling to whatever extent they feel appropriate.
 
 *Do* use AI tooling, in combination with CI where sensible, to self-review your code so as to minimize the code reviewer's burden.
-If you do use AI assistance to produce code, you should review it with particular dilligence before you submit it for code review - reviews should be a conversation between you and your reviewer, not your agent and your reviewer.
+If you do use AI assistance to produce code, you should review it with particular diligence before you submit it for code review - reviews should be a conversation between you and your reviewer, not your agent and your reviewer.
 
 Disclose details of AI use when particularly relevant to the recipient or consumer of the work.
 
-Do *not* use AI tooling to generate semantic content in situtations where your own thoughts and judgment were solicited (the kind of things we write technotes on).
+Do *not* use AI tooling to generate semantic content in situations where your own thoughts and judgment were solicited (the kind of things we write technotes on).
 
 Seek guidance from your team lead on any additional compliance requirements your employer places on AI use.
 
+## Appendix: Controversies 🔥
+
+(appendix-attribution)=
+### Attribution in human-to-human interactions
+
+There are a couple of pushbacks to the "no need to religiously disclose AI assistance".
+One I remain presently unconvinced by, the other verges on a different class of problem.
+
+The first one is "if a Claude writes a commit, it should co-author it so that the reviewer knows".
+
+The reason I don't like this feedback (aside from the violation of my provenance-neutrality stance) is that the person who objects in this way typically brings an "I want to be extra vigilant with this PR" subtext.
+However, with another recipient this could be the reverse ("if Claude says it's okay, fine").
+And both of the stances are going to be very information-poor, as it is likely that in any codebase with a large number of contributors, very soon this is going to be the norm.
+It feels like information noise for no particular gain?
+I maybe would feel differently if there was more information-rich provenance in such cases, such as what model and at what degree of effort was used, an attached plan, etc., but this then seems to be unwieldy and bureaucratic.
+And also disproportionate to societal norms I suspect; I doubt the radiologist who got AI assistance in reading your mammogram is going to be disclosing that, and that's a much higher bar.
+
+The second objection, that I have a lot of sympathy for is communication channels in which there is a baseline expectation of human-to-human communication.
+The most obvious of these is Slack.
+For one, it is disconcerting to read a message posted as coming from me and go "wait, did she even write this".
+It is also exhausting: I don't want every communication to trigger a Turing test in my brain.
+
+And there are additional overtones; depending on who it is, and your relationship to them, there can be strong "talk to the hand" energy.
+
+As someone who, ever since the Middle Ages when mail autoresponders were invented, has had a reply that said "Frossie is on vacation -- Frossie's bot 🤖" I am very on board with attribution in what is generally accepted to be a h2h communication when the AI is minding the store.
+What I can't figure out is whether this is "dev guide" scope?
+
+The other difficulty is Jira, which falls somewhere between the git and Slack hills I have planted my flag on.
+I am inclined to think that Jira is more like Slack and less like a code commit?
